@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diwakaran R- Mango Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffbe76;
+            color: #333;
+            overflow-x: hidden;
+            position: relative;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        header {
+            text-align: center;
+            padding: 50px 0;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        section {
+            margin-bottom: 50px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .skill {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin: 10px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #333;
+            color: #fff;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Existing Animations */
+        @keyframes floatBubble {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+        @keyframes jelly {
+            0%, 100% { transform: scale(1, 1); }
+            25% { transform: scale(0.9, 1.1); }
+            50% { transform: scale(1.1, 0.9); }
+            75% { transform: scale(0.95, 1.05); }
+        }
+        @keyframes glowPulse {
+            0%, 100% { box-shadow: 0 0 5px #ffbe76, 0 0 10px #ffbe76, 0 0 15px #ffbe76; }
+            50% { box-shadow: 0 0 10px #ffbe76, 0 0 20px #ffbe76, 0 0 30px #ffbe76; }
+        }
+        @keyframes spinIn {
+            from { transform: rotate(0deg) scale(0); opacity: 0; }
+            to { transform: rotate(720deg) scale(1); opacity: 1; }
+        }
+        @keyframes bounceInOut {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-30px); }
+            60% { transform: translateY(-15px); }
+        }
+        @keyframes shakeVibrate {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px) rotate(-5deg); }
+            20%, 40%, 60%, 80% { transform: translateX(5px) rotate(5deg); }
+        }
+        @keyframes flipInY {
+            from { transform: perspective(400px) rotateY(90deg); opacity: 0; }
+            to { transform: perspective(400px) rotateY(0deg); opacity: 1; }
+        }
+        @keyframes rainbowText {
+            0% { color: red; }
+            14% { color: orange; }
+            28% { color: yellow; }
+            42% { color: green; }
+            57% { color: blue; }
+            71% { color: indigo; }
+            85% { color: violet; }
+            100% { color: red; }
+        }
+        @keyframes zigzag {
+            0%, 100% { transform: translateX(0) translateY(0); }
+            25% { transform: translateX(20px) translateY(-20px); }
+            50% { transform: translateX(40px) translateY(0); }
+            75% { transform: translateX(20px) translateY(20px); }
+        }
+        @keyframes rotateScaleUp {
+            0% { transform: scale(1) rotateZ(0); }
+            50% { transform: scale(2) rotateZ(180deg); }
+            100% { transform: scale(1) rotateZ(360deg); }
+        }
+
+        /* Existing New Animations */
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        @keyframes swingDance {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(15deg); }
+            75% { transform: rotate(-15deg); }
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        @keyframes wobble {
+            0%, 100% { transform: translateX(0%); }
+            15% { transform: translateX(-25%) rotate(-5deg); }
+            30% { transform: translateX(20%) rotate(3deg); }
+            45% { transform: translateX(-15%) rotate(-3deg); }
+            60% { transform: translateX(10%) rotate(2deg); }
+            75% { transform: translateX(-5%) rotate(-1deg); }
+        }
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        @keyframes rotateY {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(360deg); }
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-30px); }
+            60% { transform: translateY(-15px); }
+        }
+        @keyframes skew {
+            0% { transform: skew(0deg, 0deg); }
+            100% { transform: skew(5deg, 5deg); }
+        }
+
+        /* New Background Animations */
+        @keyframes floatingMangoes {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(120deg); }
+            66% { transform: translate(-30px, 30px) rotate(240deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+
+        @keyframes colorShift {
+            0% { background-color: #ffbe76; }
+            33% { background-color: #f0932b; }
+            66% { background-color: #ffaf40; }
+            100% { background-color: #ffbe76; }
+        }
+
+        @keyframes wavyBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes rotatingGradient {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulsatingCircles {
+            0%, 100% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.5); opacity: 0.3; }
+        }
+
+        /* Background Elements */
+        .floating-mango {
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%23FFD700" d="M50 90c22 0 40-18 40-40S72 10 50 10 10 28 10 50s18 40 40 40z"/><path fill="%23228B22" d="M50 20c5 0 10 2 13 6 3-4 8-6 13-6 9 0 17 7 17 17 0 15-30 33-30 33S33 52 33 37c0-10 8-17 17-17z"/></svg>') center/cover no-repeat;
+            opacity: 0.7;
+            z-index: 0;
+        }
+
+        .floating-mango:nth-child(1) { top: 10%; left: 10%; animation: floatingMangoes 15s infinite linear; }
+        .floating-mango:nth-child(2) { top: 20%; right: 20%; animation: floatingMangoes 18s infinite linear reverse; }
+        .floating-mango:nth-child(3) { bottom: 15%; left: 30%; animation: floatingMangoes 20s infinite linear; }
+
+        .wavy-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ffbe76, #f0932b, #ffaf40);
+            background-size: 400% 400%;
+            animation: wavyBackground 15s ease infinite;
+            z-index: -2;
+        }
+
+        .rotating-gradient {
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, #ffbe76, #f0932b, #ffaf40, #ffbe76);
+            animation: rotatingGradient 20s linear infinite;
+            z-index: -3;
+        }
+
+        .pulsating-circle {
+            position: fixed;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.3);
+            z-index: -1;
+        }
+
+        .pulsating-circle:nth-child(1) { width: 100px; height: 100px; top: 20%; left: 20%; animation: pulsatingCircles 8s infinite; }
+        .pulsating-circle:nth-child(2) { width: 150px; height: 150px; top: 60%; right: 30%; animation: pulsatingCircles 12s infinite; }
+        .pulsating-circle:nth-child(3) { width: 80px; height: 80px; bottom: 10%; left: 50%; animation: pulsatingCircles 10s infinite; }
+
+        /* Apply Existing Animations */
+        h1 { animation: jelly 2s infinite, heartbeat 1.5s infinite; }
+        .container { animation: glowPulse 4s infinite; }
+        .skill:nth-child(odd) { animation: floatBubble 3s infinite, swingDance 2s infinite; }
+        .skill:nth-child(even) { animation: spinIn 1s forwards, blink 3s infinite; }
+        .about { animation: flipInY 1s, heartbeat 2s infinite; }
+        footer { animation: shakeVibrate 5s infinite; }
+        h2 { animation: rainbowText 5s infinite, swingDance 3s infinite; }
+        .skill:nth-child(3n) { animation: zigzag 4s infinite, heartbeat 2s infinite; }
+        .skill:nth-child(3n+1) { animation: rotateScaleUp 3s infinite, blink 2s infinite; }
+        #playButton { 
+            animation: bounceInOut 2s infinite, swingDance 1s infinite; 
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: none;
+            border: none;
+            font-size: 2em;
+            cursor: pointer;
+        }
+        p { animation: wobble 3s infinite; }
+        .container > * { animation: fadeInOut 4s infinite; }
+        .skill:nth-child(4n) { animation: rotateY 4s infinite linear; }
+        .skill:nth-child(4n+1) { animation: bounce 2s infinite; }
+        .skill:nth-child(4n+2) { animation: skew 2s infinite alternate; }
+
+        /* Apply New Background Animation */
+        body { animation: colorShift 20s infinite; }
+    </style>
+</head>
+<body>
+    <div class="wavy-background"></div>
+    <div class="rotating-gradient"></div>
+    <div class="pulsating-circle"></div>
+    <div class="pulsating-circle"></div>
+    <div class="pulsating-circle"></div>
+    <div class="floating-mango"></div>
+    <div class="floating-mango"></div>
+    <div class="floating-mango"></div>
+
+    <div class="container">
+        <header>
+            <h1>Diwakaran R 🥭</h1>
+            <p>Welcome to my mango-flavored portfolio!</p>
+        </header>
+        
+        <section class="about">
+            <h2>About Me 🥭</h2>
+            <p>I'm a creative developer with a passion for crafting delightful digital experiences.</p>
+        </section>
+        
+        <section class="skills">
+            <h2>🥭 My Skills</h2>
+            <div class="skill">HTML5</div>
+            <div class="skill">CSS3</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">React</div>
+            <div class="skill">AI/ML</div>
+            <div class="skill">MS Excel</div>
+            <div class="skill">Java</div>
+            <div class="skill">Python</div>
+        </section>
+        
+        <footer>
+            <p>&copy; 2024 Diwakaran R 🥭. All rights reserved.🔏 Privacy Policy 🥭</p>
+        </footer>
+    </div>
+    
+    <button id="playButton">🎵</button>
+
+    <audio id="backgroundMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <script>
+        const music = document.getElementById("backgroundMusic");
+        const playButton = document.getElementById("playButton");
+
+        playButton.addEventListener("click", function() {
+            if (music.paused) {
+                music.play();
+                playButton.textContent = "🔊";
+            } else {
+                music.pause();
+                playButton.textContent = "🎵";
+            }
+        });
+    </script>
+</body>
+</html>
